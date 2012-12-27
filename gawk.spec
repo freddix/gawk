@@ -1,11 +1,11 @@
 Summary:	The GNU version of the awk text processing utility
 Name:		gawk
-Version:	4.0.1
-Release:	3
+Version:	4.0.2
+Release:	1
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.xz
-# Source0-md5:	a601b032c39cd982f34272664f8afa49
+# Source0-md5:	8a9b2f1170ac9dcd3eb13716b5ec4021
 Patch0:		%{name}-less_verbose.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -64,10 +64,10 @@ rm -f $RPM_BUILD_ROOT%{_datadir}/info/dir
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p /sbin/postshell
+%post	-p /usr/sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
-%postun	-p /sbin/postshell
+%postun	-p /usr/sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
 %files -f %{name}.lang
