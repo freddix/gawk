@@ -1,12 +1,11 @@
 Summary:	The GNU version of the awk text processing utility
 Name:		gawk
-Version:	4.0.2
+Version:	4.1.0
 Release:	1
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.xz
-# Source0-md5:	8a9b2f1170ac9dcd3eb13716b5ec4021
-Patch0:		%{name}-less_verbose.patch
+# Source0-md5:	b18992ff8faf3217dab55d2d0aa7d707
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
@@ -36,7 +35,6 @@ This is the package containing the header files for gawk.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__gettextize}
@@ -56,8 +54,8 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_includedir}
 install *.h $RPM_BUILD_ROOT%{_includedir}
 
-rm -f $RPM_BUILD_ROOT%{_bindir}/gawk-%{version}
-rm -f $RPM_BUILD_ROOT%{_datadir}/info/dir
+%{__rm} $RPM_BUILD_ROOT%{_bindir}/gawk-%{version}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/gawk/*.la
 
 %find_lang %{name}
 
@@ -72,14 +70,15 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS README FUTURES LIMITATIONS NEWS PROBLEMS
+%doc AUTHORS README NEWS
 %doc POSIX.STD
 %attr(755,root,root) %{_bindir}/awk
-%attr(755,root,root) %{_bindir}/dgawk
 %attr(755,root,root) %{_bindir}/gawk
 %attr(755,root,root) %{_bindir}/igawk
-%attr(755,root,root) %{_bindir}/pgawk*
-%attr(755,root,root) %{_libdir}/awk
+%dir %{_libdir}/awk
+%dir %{_libdir}/gawk
+%attr(755,root,root) %{_libdir}/awk/*
+%attr(755,root,root) %{_libdir}/gawk/*.so
 %{_datadir}/awk
 %{_infodir}/*info*
 %{_mandir}/man1/*
