@@ -1,7 +1,8 @@
+# based on PLD Linux spec git://git.pld-linux.org/packages/gawk.git
 Summary:	The GNU version of the awk text processing utility
 Name:		gawk
 Version:	4.1.1
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.xz
