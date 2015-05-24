@@ -1,12 +1,12 @@
 # based on PLD Linux spec git://git.pld-linux.org/packages/gawk.git
 Summary:	The GNU version of the awk text processing utility
 Name:		gawk
-Version:	4.1.1
-Release:	3
+Version:	4.1.3
+Release:	1
 License:	GPL
 Group:		Applications/Text
 Source0:	ftp://ftp.gnu.org/gnu/gawk/%{name}-%{version}.tar.xz
-# Source0-md5:	a2a26543ce410eb74bc4a508349ed09a
+# Source0-md5:	97f8f44149ea9b9e94be97f68988be87
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
@@ -56,7 +56,6 @@ install -d $RPM_BUILD_ROOT%{_includedir}
 install *.h $RPM_BUILD_ROOT%{_includedir}
 
 %{__rm} $RPM_BUILD_ROOT%{_bindir}/gawk-%{version}
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/gawk/*.la
 
 %find_lang %{name}
 
